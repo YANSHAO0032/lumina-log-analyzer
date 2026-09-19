@@ -1,7 +1,9 @@
+use crate::error::AppError;
+
+pub mod error;
 pub mod model;
 pub mod parser;
-pub mod error;
 
-fn main() {
-    println!("Hello, world!");
+fn main() -> Result<(), AppError> {
+    Ok(())
 }

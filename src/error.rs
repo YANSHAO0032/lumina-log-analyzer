@@ -2,9 +2,8 @@ use thiserror::Error;
 
 #[derive(Debug, Error)]
 pub enum AppError {
-
     #[error("IO error:{0}")]
-    Io(#[from]std::io::Error),
+    Io(#[from] std::io::Error),
 
     #[error("Parse error:{0}")]
     Parse(#[from] ParseError),
@@ -14,7 +13,7 @@ pub enum AppError {
 }
 
 /// 日志格式   2026-09-04T10:00:00.123Z INFO 192.168.1.10 GET /api/v1/orders 200 18ms
-#[derive(Debug, Error,PartialEq)]
+#[derive(Debug, Error, PartialEq)]
 pub enum ParseError {
     #[error("日志必须包含7个字段")]
     InvalidFileCount,
